@@ -20,4 +20,9 @@
     border: none;
     border-bottom: 2px solid grey;
     border-radius: 7px;
+    text-align: right;
+    font-size: 45px;
+    padding-right: 8px;
+    color: rgb(122, 123, 126);
+
 }
