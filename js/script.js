@@ -70,6 +70,22 @@ numbers.forEach(number => {
             }
             return
         }
+        if (event.target.textContent == "0" || event.target.textContent == "00") {
+            if (number2 == undefined) {
+                if (operator == undefined) {
+                    if (number1 != undefined && number1[0] != "0") {
+                        number1 += event.target.textContent
+                        value.value += event.target.textContent
+                    }
+                }
+            } else {
+                if (number2[0] != "0") {
+                    number2 += event.target.textContent
+                    value.value += event.target.textContent
+                }
+            }
+            return
+        }
         if (number1 == undefined) {
             number1 = event.target.textContent
             value.value = number1
