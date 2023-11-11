@@ -20,7 +20,18 @@ function operate(opt, n1, n2) {
 }
 
 function del() {
-    //
+    if (number2 == undefined) {
+        if (operator == undefined) {
+            number1 = (number1 != undefined && number1.length > 1) ? number1.slice(0, number1.length - 1) : undefined
+            value.value = value.value.slice(0, value.value.length - 1)
+        } else {
+            operator = undefined
+            value.value = value.value.slice(0, value.value.length - 1)
+        }
+    } else {
+        number2 = (number2.length > 1) ? number2.slice(0, number2.length - 1) : undefined
+        value.value = value.value.slice(0, value.value.length - 1)
+    }
 }
 
 const value = document.querySelector("#input")
@@ -78,6 +89,10 @@ functions.forEach(func => {
                     number2 = operator = undefined
                     value.value = number1
                 }
+                break
+            case "DEL":
+                del()
+                break
         }
     })
 })
