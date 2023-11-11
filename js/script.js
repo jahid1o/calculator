@@ -21,7 +21,7 @@ function operate(opt, n1, n2) {
             result = n1 % n2
             break
     }
-    return result.toFixed(4)
+    return (result % 1 != 0) ? result.toFixed(4) : result
 }
 
 function del() {
