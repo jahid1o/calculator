@@ -7,14 +7,19 @@ function operate(opt, n1, n2) {
     switch (opt) {
         case "+":
             result = n1 + n2
+            break
         case "-":
             result = n1 - n2
+            break
         case "×":
             result = n1 * n2
+            break
         case "÷":
             result = n1 / n2
+            break
         case "%":
             result = n1 % n2
+            break
     }
     return result.toFixed(4)
 }
