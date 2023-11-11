@@ -172,7 +172,6 @@ functions.forEach(func => {
 })
 
 document.addEventListener("keydown", event => {
-    //console.log(event.key, event.code)
     if (!isNaN(Number(event.key))) {
         addNumber(event.key)
     } else {
@@ -186,6 +185,9 @@ document.addEventListener("keydown", event => {
             case "/":
             case "%":
                 addOperator(event.key)
+                break
+            case "Enter":
+                equalsTo()
                 break
         }
     }
