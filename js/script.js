@@ -105,7 +105,7 @@ functions.forEach(func => {
         switch (event.target.textContent) {
             case "AC":
                 number1 = number2 = operator = undefined
-                value.value = "0"
+                value.value = ""
                 break
             case "=":
                 if (number2 != undefined) {
