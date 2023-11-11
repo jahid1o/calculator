@@ -1,23 +1,3 @@
-function add(num1, num2) {
-    return num1 + num2
-}
-
-function subtract(num1, num2) {
-    return num1 - num2
-}
-
-function multiply(num1, num2) {
-    return num1 * num2
-}
-
-function divide(num1, num2) {
-    return num1 / num2
-}
-
-function remainder(num1, num2) {
-    return num1 % num2
-}
-
 let operator, number1, number2
 
 function operate(opt, n1, n2) {
@@ -26,15 +6,15 @@ function operate(opt, n1, n2) {
     let result
     switch (opt) {
         case "+":
-            result = add(n1, n2)
+            result = n1 + n2
         case "-":
-            result = subtract(n1, n2)
+            result = n1 - n2
         case "×":
-            result = multiply(n1, n2)
+            result = n1 * n2
         case "÷":
-            result = divide(n1, n2)
+            result = n1 / n2
         case "%":
-            result = remainder(n1, n2)
+            result = n1 % n2
     }
     return result.toFixed(4)
 }
