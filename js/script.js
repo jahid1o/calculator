@@ -44,8 +44,6 @@ const numbers = document.querySelectorAll(".number")
 const operators = document.querySelectorAll(".operator")
 const functions = document.querySelectorAll(".function")
 
-console.log(value)
-
 numbers.forEach(number => {
     number.addEventListener('click', event => {
         if (event.target.textContent == "." && value.value.includes(".")) {
@@ -54,14 +52,14 @@ numbers.forEach(number => {
         if (number1 == undefined) {
             number1 = event.target.textContent
             value.value = number1
-        } else if (operator == undefined) {
-            number1 += event.target.textContent
-            value.value += event.target.textContent
-        } else if (number2 == undefined) {
-            number2 = event.target.textContent
-            value.value += event.target.textContent
         } else {
-            number2 += event.target.textContent
+            if (operator == undefined) {
+                number1 += event.target.textContent
+            } else if (number2 == undefined) {
+                number2 = event.target.textContent
+            } else {
+                number2 += event.target.textContent
+            }
             value.value += event.target.textContent
         }
     })
