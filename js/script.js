@@ -79,6 +79,22 @@ function addZero() {
     }
 }
 
+function addNumber(number) {
+    if (number1 == undefined) {
+        number1 = number
+        value.value = number1
+    } else {
+        if (operator == undefined) {
+            number1 += number
+        } else if (number2 == undefined) {
+            number2 = number
+        } else {
+            number2 += number
+        }
+        value.value += number
+    }
+}
+
 const value = document.querySelector("#input")
 const numbers = document.querySelectorAll(".number")
 const operators = document.querySelectorAll(".operator")
@@ -88,9 +104,7 @@ numbers.forEach(number => {
     number.addEventListener('click', event => {
         if (event.target.textContent == ".") {
             addDot()
-            return
-        }
-        if (event.target.textContent == "0" || event.target.textContent == "00") {
+        } else if (event.target.textContent == "0" || event.target.textContent == "00") {
             if (number2 == undefined) {
                 if (operator == undefined) {
                     if (number1 != undefined && number1[0] != "0") {
@@ -104,20 +118,8 @@ numbers.forEach(number => {
                     value.value += event.target.textContent
                 }
             }
-            return
-        }
-        if (number1 == undefined) {
-            number1 = event.target.textContent
-            value.value = number1
         } else {
-            if (operator == undefined) {
-                number1 += event.target.textContent
-            } else if (number2 == undefined) {
-                number2 = event.target.textContent
-            } else {
-                number2 += event.target.textContent
-            }
-            value.value += event.target.textContent
+            addNumber(event.target.textContent)
         }
     })
 })
