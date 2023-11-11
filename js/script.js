@@ -46,7 +46,28 @@ const functions = document.querySelectorAll(".function")
 
 numbers.forEach(number => {
     number.addEventListener('click', event => {
-        if (event.target.textContent == "." && value.value.includes(".")) {
+        if (event.target.textContent == ".") {
+            if (number2 == undefined) {
+                if (operator == undefined) {
+                    if (number1 == undefined) {
+                        number1 = "."
+                        value.value = "."
+                    } else {
+                        if (!number1.includes(".")) {
+                            number1 += "."
+                            value.value += "."
+                        }
+                    }
+                } else {
+                    number2 = "."
+                    value.value += "."
+                }
+            } else {
+                if (!number2.includes(".")) {
+                    number2 += "."
+                    value.value += "."
+                }
+            }
             return
         }
         if (number1 == undefined) {
