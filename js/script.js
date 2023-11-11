@@ -95,6 +95,19 @@ function addNumber(number) {
     }
 }
 
+function allClear() {
+    number1 = number2 = operator = undefined
+    value.value = ""
+}
+
+function equalsTo() {
+    if (number2 != undefined) {
+        number1 = operate(operator, number1, number2)
+        number2 = operator = undefined
+        value.value = number1
+    }
+}
+
 const value = document.querySelector("#input")
 const numbers = document.querySelectorAll(".number")
 const operators = document.querySelectorAll(".operator")
@@ -142,15 +155,10 @@ functions.forEach(func => {
     func.addEventListener("click", event => {
         switch (event.target.textContent) {
             case "AC":
-                number1 = number2 = operator = undefined
-                value.value = ""
+                allClear()
                 break
             case "=":
-                if (number2 != undefined) {
-                    number1 = operate(operator, number1, number2)
-                    number2 = operator = undefined
-                    value.value = number1
-                }
+                equalsTo()
                 break
             case "DEL":
                 del()
