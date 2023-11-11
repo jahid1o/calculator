@@ -108,6 +108,18 @@ function equalsTo() {
     }
 }
 
+function addOperator(opt) {
+    if (number2 != undefined) {
+        number1 = operate(operator, number1, number2)
+        number2 = undefined
+        operator = opt
+        value.value = number1 + operator
+    } else if (number1 != undefined) {
+        operator = opt
+        value.value = number1 + operator
+    }
+}
+
 const value = document.querySelector("#input")
 const numbers = document.querySelectorAll(".number")
 const operators = document.querySelectorAll(".operator")
@@ -138,17 +150,7 @@ numbers.forEach(number => {
 })
 
 operators.forEach(opt => {
-    opt.addEventListener("click", event => {
-        if (number2 != undefined) {
-            number1 = operate(operator, number1, number2)
-            number2 = undefined
-            operator = event.target.textContent
-            value.value = number1 + operator
-        } else if (number1 != undefined) {
-            operator = event.target.textContent
-            value.value = number1 + operator
-        }
-    })
+    opt.addEventListener("click", event => addOperator(event.target.textContent))
 })
 
 functions.forEach(func => {
@@ -176,6 +178,7 @@ document.addEventListener("keydown", event => {
             case "Backspace":
                 del()
                 break
+            //case "+" || "-"
         }
     }
 })
