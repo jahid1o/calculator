@@ -12,9 +12,11 @@ function operate(opt, n1, n2) {
             result = n1 - n2
             break
         case "×":
+        case "*":
             result = n1 * n2
             break
         case "÷":
+        case "/":
             result = n1 / n2
             break
         case "%":
@@ -170,7 +172,7 @@ functions.forEach(func => {
 })
 
 document.addEventListener("keydown", event => {
-    console.log(event.key, event.code)
+    //console.log(event.key, event.code)
     if (!isNaN(Number(event.key))) {
         addNumber(event.key)
     } else {
@@ -178,7 +180,13 @@ document.addEventListener("keydown", event => {
             case "Backspace":
                 del()
                 break
-            //case "+" || "-"
+            case "+":
+            case "-":
+            case "*":
+            case "/":
+            case "%":
+                addOperator(event.key)
+                break
         }
     }
 })
