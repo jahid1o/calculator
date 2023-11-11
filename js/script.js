@@ -168,8 +168,14 @@ functions.forEach(func => {
 })
 
 document.addEventListener("keydown", event => {
-    //console.log(event.key, event.code)
+    console.log(event.key, event.code)
     if (!isNaN(Number(event.key))) {
         addNumber(event.key)
+    } else {
+        switch (event.key) {
+            case "Backspace":
+                del()
+                break
+        }
     }
 })
