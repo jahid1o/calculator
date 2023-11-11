@@ -39,6 +39,46 @@ function del() {
     }
 }
 
+function addDot() {
+    if (number2 == undefined) {
+        if (operator == undefined) {
+            if (number1 == undefined) {
+                number1 = "."
+                value.value = "."
+            } else {
+                if (!number1.includes(".")) {
+                    number1 += "."
+                    value.value += "."
+                }
+            }
+        } else {
+            number2 = "."
+            value.value += "."
+        }
+    } else {
+        if (!number2.includes(".")) {
+            number2 += "."
+            value.value += "."
+        }
+    }
+}
+
+function addZero() {
+    if (number2 == undefined) {
+        if (operator == undefined) {
+            if (number1 != undefined && number1[0] != "0") {
+                number1 += "0"
+                value.value += "0"
+            }
+        }
+    } else {
+        if (number2[0] != "0") {
+            number2 += "0"
+            value.value += "0"
+        }
+    }
+}
+
 const value = document.querySelector("#input")
 const numbers = document.querySelectorAll(".number")
 const operators = document.querySelectorAll(".operator")
@@ -47,27 +87,7 @@ const functions = document.querySelectorAll(".function")
 numbers.forEach(number => {
     number.addEventListener('click', event => {
         if (event.target.textContent == ".") {
-            if (number2 == undefined) {
-                if (operator == undefined) {
-                    if (number1 == undefined) {
-                        number1 = "."
-                        value.value = "."
-                    } else {
-                        if (!number1.includes(".")) {
-                            number1 += "."
-                            value.value += "."
-                        }
-                    }
-                } else {
-                    number2 = "."
-                    value.value += "."
-                }
-            } else {
-                if (!number2.includes(".")) {
-                    number2 += "."
-                    value.value += "."
-                }
-            }
+            addDot()
             return
         }
         if (event.target.textContent == "0" || event.target.textContent == "00") {
@@ -135,4 +155,8 @@ functions.forEach(func => {
                 break
         }
     })
+})
+
+document.addEventListener("keydown", event => {
+    console.log(event.key, event.code)
 })
