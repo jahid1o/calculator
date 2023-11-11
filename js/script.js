@@ -111,6 +111,7 @@ function equalsTo() {
 }
 
 function addOperator(opt) {
+    opt = opt.replace("/", "÷").replace("*", "×")
     if (number2 != undefined) {
         number1 = operate(operator, number1, number2)
         number2 = undefined
@@ -171,7 +172,8 @@ functions.forEach(func => {
     })
 })
 
-document.addEventListener("keydown", event => {
+document.addEventListener("keyup", event => {
+    event.preventDefault();
     if (!isNaN(Number(event.key))) {
         addNumber(event.key)
     } else {
