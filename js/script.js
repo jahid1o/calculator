@@ -23,18 +23,20 @@ let operator, number1, number2
 function operate(opt, n1, n2) {
     n1 = Number(n1)
     n2 = Number(n2)
+    let result
     switch (opt) {
         case "+":
-            return add(n1, n2)
+            result = add(n1, n2)
         case "-":
-            return subtract(n1, n2)
+            result = subtract(n1, n2)
         case "×":
-            return multiply(n1, n2)
+            result = multiply(n1, n2)
         case "÷":
-            return divide(n1, n2)
+            result = divide(n1, n2)
         case "%":
-            return remainder(n1, n2)
+            result = remainder(n1, n2)
     }
+    return result.toFixed(4)
 }
 
 function del() {
